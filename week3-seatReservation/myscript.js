@@ -1,21 +1,41 @@
-(function(){
-'use strict';
+(function() {
+  'use strict';
 
-for(let abc = 97; abc <= ; abc++){
-// const row = String.fromCharCode(abc);
- 
-// create div.label text=row  --append to section#left
+  const left = document.querySelector("#left");
+  const middle = document.querySelector("#middle");
+  const right = document.querySelector("#right");
 
-for(let num = 1; num <= 15; num++){
-// createElement(div) // id and content are row + num
-// if or switch: append to corresponding section
-}
- // another div.label with abc added to end 
+  for (let abc = 97; abc <= 116; abc++) {
+    const row = String.fromCharCode(abc);
 
-}
-//
+    const leftLabel = document.createElement('div');
+    leftLabel.className = "label";
+    leftLabel.innerText = row.toUpperCase();
+    left.appendChild(leftLabel);
+
+    for (let num = 1; num <= 15; num++) {
+      // createElement(div) // id and content are abc + num
+      const seat = document.createElement("div");
+      seat.setAttribute("id", row+num);
+      seat.innerText = num;
+
+      if (num <= 3 ){
+        left.appendChild(seat);
+      } else if (num <= 12) {
+        middle.appendChild(seat);
+      } else {
+        right.appendChild(seat);
+      }
+      // if or switch: append to corresponding section
+    }
+    // another div.label with abc added to end
+    const rightLabel = document.createElement("div");
+    rightLabel.className = "label";
+    rightLabel.innerText = row.toUpperCase();
+    right.appendChild(rightLabel);
+
+  }
+
+
 
 }());
-
-// String.fromCharCode(num)
-//charCodeAt()
